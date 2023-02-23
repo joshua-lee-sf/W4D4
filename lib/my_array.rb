@@ -20,5 +20,16 @@ class Array
     end
     pairs
   end
+
+  def my_transpose
+    new_matrix = Array.new(self[0].length) {Array.new(self.length)} 
+
+    self.each_with_index do |sub_array, row|
+      sub_array.each_with_index do |ele, col|
+        new_matrix[col][row] = ele
+      end
+    end
+    new_matrix
+  end
   
 end

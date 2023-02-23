@@ -4,6 +4,7 @@ require "my_array"
 describe Array do
   subject(:my_array) {[1,2,1,3,3]}
   subject(:two_array) {[1,2,3,-3,-1,-2]}
+  subject(:my_matrix) {[[1],[2],[3],[4]]}
 
   describe "#my_uniq" do
     it "should be applied to an array" do
@@ -32,6 +33,21 @@ describe Array do
 
     it "should return a new array" do
       expect(two_array.two_sum.object_id).not_to be(two_array.object_id)
+    end
+  end
+
+  describe "#my_transpose" do
+    it "should be applied to a 2D array" do
+      expect{my_matrix.my_transpose}.not_to raise_error
+    end
+
+    it "should transpose the given array" do
+      expect(my_matrix.my_transpose).to eq([[1,2,3,4]])
+      expect([[1,2],[3,4]].my_transpose).to eq([[1,3],[2,4]])
+    end
+
+    it "should return a new array" do
+      expect(my_matrix.my_transpose.object_id).not_to be(my_matrix.object_id)
     end
   end
 

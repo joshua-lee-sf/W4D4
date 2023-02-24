@@ -2,7 +2,7 @@ require 'rspec'
 require 'towers_of_hanoi'
 
 describe 'TowersOfHanoi' do
-  subject { TowersofHanoi.new(3) }
+  subject { TowersofHanoi.new(3)}
 
   describe "#initialize" do
     it "should create an array of three towers" do
@@ -21,7 +21,8 @@ describe 'TowersOfHanoi' do
       expect(subject.move(0, 2)).to eq([[2,3], [], [1]])
     end
 
-    it "should only place a disk in a stack if the disk is smaller than the top disk of the given tower" do
+    it "should call #valid_move?" do
+      expect(subject.move(0,2)).to receive(:valid_move?)
     end
 
   end

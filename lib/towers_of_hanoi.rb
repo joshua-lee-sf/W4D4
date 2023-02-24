@@ -12,14 +12,23 @@ class TowersofHanoi
   end
 
   def move(start, destination)
-    disk = self.stacks[start].shift
-    self.stacks[destination].unshift(disk)
-    self.stacks
+    if self.valid_move?(start,destination)
+      disk = self.stacks[start].shift
+      self.stacks[destination].unshift(disk)
+      self.stacks
+    else
+      return "not valid!"
+    end
   end
 
   def won?
   end
 
-  def valid_move?
+  def valid_move?(start, destination)
+    if self.stacks[destination].empty?
+      return true
+    else
+      (self.stacks[start][0] > self.stacks[destination][0])
+    end
   end
 end

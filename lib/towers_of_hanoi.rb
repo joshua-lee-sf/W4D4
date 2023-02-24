@@ -22,6 +22,7 @@ class TowersofHanoi
   end
 
   def won?
+    self.stacks[-1] == (1..self.max_height).to_a
   end
 
   def valid_move?(start, destination)
